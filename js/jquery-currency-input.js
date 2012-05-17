@@ -18,7 +18,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   $ = jQuery;
 
   isNumber = function(obj) {
-    return toString.call(obj) === '[object Number]' && isFinite(obj);
+    return (toString.call(obj)) === '[object Number]' && isFinite(obj);
   };
 
   toNumber = function(str) {
@@ -28,8 +28,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
   left = function(num) {
     var digits, grouped, i, str, _i, _j, _len;
-    str = Math.floor(num).toFixed().toString();
-    digits = str.split('').reverse();
+    str = (Math.floor(num)).toFixed().toString();
+    digits = (str.split('')).reverse();
     grouped = [];
     while (digits.length > 3) {
       for (i = _i = 1; _i <= 3; i = ++_i) {
@@ -45,7 +45,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   };
 
   right = function(num) {
-    return (num - Math.floor(num)).toFixed(2).replace(/\d*\./, '');
+    return (num - (Math.floor(num))).toFixed(2).replace(/\d*\./, '');
   };
 
   format = function(num) {

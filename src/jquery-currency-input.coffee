@@ -15,15 +15,15 @@ $ = jQuery
 
 # From _.isFinite
 isNumber = (obj) ->
-  toString.call(obj) == '[object Number]' and isFinite(obj)
+  (toString.call obj) == '[object Number]' and isFinite(obj)
 
 toNumber = (str) -> 
   str = str.toString().replace /[$,\s]/g, ''
-  parseFloat(str)
+  parseFloat str
 
 left = (num) ->
-  str = Math.floor(num).toFixed().toString()
-  digits = str.split('').reverse()
+  str = (Math.floor num).toFixed().toString()
+  digits = (str.split '').reverse()
   grouped = []
   while digits.length > 3
     grouped.push digits.shift() for i in [1..3]
@@ -32,11 +32,11 @@ left = (num) ->
   grouped.reverse().join ''
 
 right = (num) ->
-  (num - Math.floor(num)).toFixed(2).replace /\d*\./, ''
+  (num - (Math.floor num)).toFixed(2).replace /\d*\./, ''
 
 format = (num) -> 
   unless isNumber num
-    format(toNumber(num))
+    format(toNumber num)
   else
     "$ #{left num}.#{right num}"
 
