@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-currency-input.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(function(){
+          $('form').submit(function(){
+            console.log("Currency value is: "+this.currency.value);
+            return false;
+            });
+          });
+    </script>
+  </head>
+  <body>
+    <form>
+      Text: <input name="text"/><br/>
+      Cash: <input name="currency" type="currency"/>
+      <input type="submit">
+    </form>
+  </body>
+</html>
+    
