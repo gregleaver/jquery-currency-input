@@ -19,7 +19,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   $ = jQuery;
 
   isNumber = function(obj) {
-    return (toString.call(obj)) === '[object Number]' && isFinite(obj);
+    return (Object.prototype.toString.call(obj)) === '[object Number]' && isFinite(obj);
   };
 
   toNumber = function(str) {

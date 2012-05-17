@@ -16,7 +16,7 @@ $ = jQuery
 
 # From _.isFinite
 isNumber = (obj) ->
-  (toString.call obj) == '[object Number]' and isFinite(obj)
+  (Object.prototype.toString.call obj) == '[object Number]' and isFinite(obj)
 
 toNumber = (str) -> 
   str = str.toString().replace /[$,\s]/g, ''
