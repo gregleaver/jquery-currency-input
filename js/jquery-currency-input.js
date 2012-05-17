@@ -65,6 +65,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   $(function() {
     return $('input[type="currency"]').each(function() {
       var _this = this;
+      this.value = format(this.value);
       $(this).closest('form').submit(function() {
         _this.value = toNumber(_this.value);
         return true;

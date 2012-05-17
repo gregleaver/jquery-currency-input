@@ -43,6 +43,7 @@ format = (num) ->
 
 $ ->
   $('input[type="currency"]').each ->
+    this.value = format this.value
     $(this).closest('form').submit () =>
       this.value = toNumber this.value
       return true
