@@ -19,7 +19,8 @@ isNumber = (obj) ->
 
 toNumber = (str) -> 
   str = str.toString().replace /[$,\s]/g, ''
-  parseFloat str
+  num = parseFloat str
+  if isNumber num then num else 0.00
 
 left = (num) ->
   str = (Math.floor num).toFixed().toString()

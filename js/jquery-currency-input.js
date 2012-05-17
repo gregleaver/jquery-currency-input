@@ -22,8 +22,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   };
 
   toNumber = function(str) {
+    var num;
     str = str.toString().replace(/[$,\s]/g, '');
-    return parseFloat(str);
+    num = parseFloat(str);
+    if (isNumber(num)) {
+      return num;
+    } else {
+      return 0.00;
+    }
   };
 
   left = function(num) {
