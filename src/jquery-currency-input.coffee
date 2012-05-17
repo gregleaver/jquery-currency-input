@@ -42,12 +42,15 @@ format = (num) ->
   else
     "$ #{left num}.#{right num}"
 
-$ ->
-  $('input[type="currency"]').each ->
+
+$.fn.currency = () ->
+  this.each ->
     this.value = format this.value
-    $(this).closest('form').submit () =>
+    $(this).closest('form').bind 'submit.currency', () =>
       this.value = toNumber this.value
       return true
-    $(this).blur () => 
+    $(this).bind 'blur.currency', () => 
       this.value = format this.value
 
+$ ->
+  $('input[type="currency"]').currency()

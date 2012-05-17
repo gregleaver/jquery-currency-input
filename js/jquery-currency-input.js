@@ -63,18 +63,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
   };
 
-  $(function() {
-    return $('input[type="currency"]').each(function() {
+  $.fn.currency = function() {
+    return this.each(function() {
       var _this = this;
       this.value = format(this.value);
-      $(this).closest('form').submit(function() {
+      $(this).closest('form').bind('submit.currency', function() {
         _this.value = toNumber(_this.value);
         return true;
       });
-      return $(this).blur(function() {
+      return $(this).bind('blur.currency', function() {
         return _this.value = format(_this.value);
       });
     });
+  };
+
+  $(function() {
+    return $('input[type="currency"]').currency();
   });
 
 }).call(this);
